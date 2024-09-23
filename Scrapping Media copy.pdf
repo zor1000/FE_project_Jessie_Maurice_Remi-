@@ -1,0 +1,112 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "initial_id",
+   "metadata": {
+    "collapsed": true,
+    "ExecuteTime": {
+     "end_time": "2024-09-23T06:57:16.911279Z",
+     "start_time": "2024-09-23T06:57:16.589383Z"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "import requests\n",
+    "from bs4 import BeautifulSoup"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "outputs": [],
+   "source": [
+    "url = 'https://www.theguardian.com/europe'\n",
+    "req = requests.get(url)"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "ExecuteTime": {
+     "end_time": "2024-09-23T06:58:17.581327Z",
+     "start_time": "2024-09-23T06:58:17.429037Z"
+    }
+   },
+   "id": "db45227654b23d25",
+   "execution_count": 2
+  },
+  {
+   "cell_type": "code",
+   "outputs": [],
+   "source": [
+    "r = BeautifulSoup(req.content, \"html.parser\")"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "ExecuteTime": {
+     "end_time": "2024-09-23T07:00:40.666487Z",
+     "start_time": "2024-09-23T07:00:40.437084Z"
+    }
+   },
+   "id": "d4c8b4b2ddf70dd9",
+   "execution_count": 3
+  },
+  {
+   "cell_type": "code",
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['One killed and six wounded in Israeli strikes on southern Lebanon, say reports', None, None, 'Social Democrats fend off AfD in crucial German state election, initial results show', 'Russia isolated at UN summit after surprise bid to derail pact', '‘Moneypenny with more power’: book celebrates UK’s forgotten female spies', 'Zelenskyy arrives in US on crucial visit to rally support for Kyiv', '‘This isn’t the real Oprah’: Trump lashes out at talkshow host over Harris support', 'Six-year-old abducted from California park in 1951 found alive after seven decades', 'Swiss voters reject biodiversity proposal in blow to conservation campaigners', 'Fifty pubs a month shut in first half of year in England and Wales, figures show ', '‘Amazed I’m still alive’: surfer survives massive wipeout in Tasmania', '‘A struggle to feel pride’: coming-of-age film breaks new ground in Sámi culture', 'The west’s cautious approach seeks to avoid escalation in Ukraine. It may have the opposite effect', '‘This is our culture’: what Earl of Devon thinks hereditary peers bring to Lords', 'The hidden life of Elizabeth Taylor – as seen by her son: ‘Her love for Richard Burton never went away’', '‘Art may be a pact with the devil’: the great Marlene Dumas on her darkly provocative art', 'Friends at 30: the one where a cultural phenomenon just refuses to die', None, 'From a baited Trump to hot soup in the Nutribullet', 'The flight to freedom of Phillip Mehrtens, the NZ pilot who survived 594 days in captivity', 'BA left my 14-year-old daughter alone and stranded at an airport in France', 'I’m obsessed with sharks: I used to kill them, now I risk my life to film them', '‘Not having a phone is the dream’: Jamie xx on dance music, modern life and getting hooked on surfing', None, 'Italy’s migrant pact with Albania makes no sense. So what’s the real reason Starmer is showing interest?', 'Labour, beware: Britain’s housing crisis is driving voters towards populism', None, 'People must understand: we in Malawi are paying for the climate crisis with our lives', 'The Guardian view on Trump’s attacks on migrants: smirking racism is no less dangerous', 'The words of the master Persian poets carry a mystical power – and can create serious transformation', None, 'Boris Johnson has inserted himself into the working from home discourse. Amazing', None, '‘Call it clever … or dirty’: Stones and Silva take swipe at Gunners over dark arts in draw', None, None, None, \"Verstappen threatens to quit sport after 'silly' swearing punishment\", None, 'Dubois’s pitiless victory should be Joshua’s final defeat', None, 'Arsenal 2-2 Manchester City: Mead rescues Gunners in WSL opener', None, None, 'Milan stun Inter as Gallagher scores again for Atlético', None, 'Brighton 2-2 N Forest: Sosa seals point as three see red in fiery draw', None, 'Evenepoel and Brown win world time trial titles', 'Miedema’s goal at Arsenal homecoming was inevitable', None, \"Is the UK's Labour government on track to meet its promises on the environment?\", 'Sweden cuts tax on flying despite admitting it would increase emissions', '‘You basically have free hot water’: how Cyprus became a world leader in solar heating', 'Floods in Poland and wildfires in Portugal show reality of climate breakdown, says EU', None, None, None, 'Trump says he won’t run for president again in 2028 if he loses in November', None, None, None, None, 'UN chief calls on Sudanese paramilitary leader to end siege of North Darfur city', 'Japan floods: six dead after rain pounds region still recovering from earthquake', 'Māori language ‘at risk’ as a result of government policies, commissioner says', 'REA Group makes third offer to buy Rightmove, worth £6.1bn ', 'Rachel Reeves orders investigations into £600m of Covid contracts', 'Lammy urges ‘guts’ in ongoing US talks over Ukraine using missiles in Russia', 'Polish man living in UK since childhood granted 11th-hour deportation reprieve', 'France’s new government under pressure as opponents threaten no-confidence vote', 'Dozens of arrests made in UK crackdown against gangs exploiting Irish border', None, 'Succession star J Smith-Cameron: ‘There’s a bewildered vulnerability to middle age that is ripe to be explored’', 'On Freedom by Timothy Snyder review –\\xa0an essential manifesto for change', 'Rigoletto review – dark and daring take on Verdi’s depraved tale', 'The Invention of the Other review – fascinating first glimpse of uncontacted Amazon tribe', 'The Art of Uncertainty by David Spiegelhalter review – a search for sense in probability and chance', 'Los Campesinos! review – a hero’s welcome for cult indie stars ', None, 'Volunteering at music festivals supported my post-retirement trip to the US and Canada', 'Childlike wonder and high fashion mix in Bottega Veneta show', 'Why clothes are such vivid reminders of the life we’ve led ', 'Will you marry me (again)?: the rise of ‘divorce regret’', 'I have cancer. How can I stop my anger from engulfing me?', None, 'Zandra Rhodes on cancer, colour and the art of being fabulous', None, None, \"google's privacy policy\", \"google's terms of service\", 'Tell us about your tattoos and what they mean to you', 'Tell us your favourite moments from Friends', 'Tell us about your most memorable dating locations', 'Share your best recent pictures with us', None, '‘Morally indefensible’ – but George W Bush will not come out against Trump', None, None, 'Bolivia: protest march by ex-president’s supporters reflects split at heart of left', 'Murdoch family drama plays out in court with fate of Fox News at stake', 'How did ‘learned helplessness’ become commonly used to describe US voters?', 'Should cocaine and MDMA users carry naloxone, the medicine that prevents fatal opioid overdoses?', 'Why the world’s most famous gunpowder artist is collaborating with AI', None, None, None, 'Putin regime will collapse without warning, says freed gulag dissident', '‘Remorseless, ruthless, racist’: my battle to expose Mohamed Al Fayed', 'Von der Leyen tightens grip on power in EU – but trouble looms on the horizon', '‘Everything is left behind’: as Russians close in on Ukrainian city, families agonise whether to flee', None, None, None, 'On board the Creed cruise: the unfathomable return of the ‘worst band of the 90s’ – podcast', 'Live episode: will AI make a good companion? – podcast', 'Janet Jackson on Michael and motherhood, Friends at 30, and Marina Hyde on the real ‘enigma’ about Charlotte Owen – podcast', 'Comfort Eating with Grace Dent is back for a new season', 'An episode from Women’s Football Weekly: NewCo, WPLL, and a WSL preview – podcast', 'What will Donald Trump do if he loses the election? – podcast', 'A Chinese-born writer’s quest to understand the Vikings, Normans and life on the English coast – podcast', None, None, 'Is communal living the answer to modern malaise? – video', 'Why the far-right AfD has been so successful in Germany ', 'Princess of Wales gives health update in video featuring William and their children', 'Scientists capture the moment an eel escapes after being eaten by a fish', None, ' Andy Warhol’s flowers and Oktoberfest begins', 'Shout about it: standout trends from the season’s key collections', 'London calling: Claude Monet’s views of the Thames', 'The week around the world in 20 pictures', '‘My mother never sat idle. My daughter is equally energetic’: Olga Ivanova’s best phone picture', 'Hampshire beaver babies, bubbly lizards and a shopaholic koala', None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, None, \"google's privacy policy\", \"google's terms of service\"]\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_list_title = []\n",
+    "for element in r.find_all(\"main\"):\n",
+    "    for link in element.find_all(\"a\"):\n",
+    "        my_list_title.append(link.get(\"aria-label\"))\n",
+    "print(my_list_title)"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "ExecuteTime": {
+     "end_time": "2024-09-23T07:15:21.332189Z",
+     "start_time": "2024-09-23T07:15:21.316587Z"
+    }
+   },
+   "id": "a5dc97574fa95640",
+   "execution_count": 5
+  },
+  {
+   "cell_type": "code",
+   "outputs": [],
+   "source": [],
+   "metadata": {
+    "collapsed": false
+   },
+   "id": "19e82349efc00f52"
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
