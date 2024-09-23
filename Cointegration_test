@@ -1,0 +1,36 @@
+import yfinance as yf
+from statsmodels.tsa.vector_ar.vecm import coint_johansen
+
+tickers = ['META','AMZN','AAPL','NFLX','GOOG','NVDA','TSLA']
+df = yf.download(tickers)
+
+df = df['Adj Close'].dropna()
+
+df.head()
+
+df.tail()
+
+df.plot(subplots=True)
+
+# Tendency to move together
+# We can now do a granger co-integration test
+# It mean establish the presence of statistically significant connection  between two or more time series
+def coint_test(df, alpha=0.05):
+    """
+    Cointegration Test and report
+    
+    """
+    out = coint_johansen(df, -1, 5) 
+    d = {'0.90':0, '0.95':1, '0.99':2}
+    traces = out.lr1
+    cvts = out.cvt[:, d[str(1-alpha)]]
+    
+    def adjust(val, length=6):
+        return str(val).ljust(length)
+    
+    print("Name\t||\t Test Stat > C(95%)\t=>Signif\t\n", '--'*20)
+    for col, trace, cvt in zip(df.columns, traces, cvts):
+        print(adjust(col), "|| ", adjust(round(trace,2), 9), ">", 
+              adjust(cvt, 8)," => ", trace > cvt)
+#%%
+coint_test(df)
